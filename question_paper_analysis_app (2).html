@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocational English - Writing Task Analysis Guide</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Canvas Confetti Library for Visual Effects -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .paper-font {
+      font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+    }
+    .highlight-glow {
+      box-shadow: 0 0 15px rgba(234, 179, 8, 0.6);
+    }
+    .pulse-subtle {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-slate-800 border-b border-slate-700 p-4 sticky top-0 z-30 shadow-md">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="p-2 bg-indigo-600 rounded-lg text-white">
+          <i class="fa-solid fa-graduation-cap text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-white">Vocational English 2D</h1>
+          <p class="text-xs text-slate-400">Sample Practice - Question Paper Breakdown Guide</p>
+        </div>
+      </div>
+      
+      <!-- Progress Indicator -->
+      <div class="flex items-center space-x-1 sm:space-x-2 text-xs font-medium">
+        <button onclick="switchStep(1)" id="stepBtn-1" class="px-3 py-1.5 rounded-md bg-indigo-600 text-white transition">1. Situation</button>
+        <i class="fa-solid fa-chevron-right text-slate-600"></i>
+        <button onclick="switchStep(2)" id="stepBtn-2" class="px-3 py-1.5 rounded-md bg-slate-700 text-slate-300 hover:bg-slate-600 transition">2. Options</button>
+        <i class="fa-solid fa-chevron-right text-slate-600"></i>
+        <button onclick="switchStep(3)" id="stepBtn-3" class="px-3 py-1.5 rounded-md bg-slate-700 text-slate-300 hover:bg-slate-600 transition">3. Evaluation</button>
+        <i class="fa-solid fa-chevron-right text-slate-600"></i>
+        <button onclick="switchStep(4)" id="stepBtn-4" class="px-3 py-1.5 rounded-md bg-slate-700 text-slate-300 hover:bg-slate-600 transition">4. Practice Quiz</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+    <!-- LEFT COLUMN: Interactive Question Paper View (Updated to PDF content) -->
+    <section class="lg:col-span-7 bg-white text-slate-800 rounded-xl shadow-2xl overflow-hidden border border-slate-200 flex flex-col">
+      <!-- Simulated Question Paper Sheet -->
+      <div class="p-6 md:p-8 space-y-6 flex-1 bg-amber-50/20 overflow-y-auto relative">
+
+        <!-- Title -->
+        <div class="text-center font-bold underline text-lg tracking-wide">
+          Sample Practice<br>
+          Question Paper
+        </div>
+
+        <!-- Section 1: Task / Situation -->
+        <div id="paper-section-1" class="p-4 rounded-lg border-2 border-dashed border-amber-400 bg-amber-50/80 transition-all duration-300 relative cursor-pointer group" onclick="switchStep(1)">
+          <span class="absolute -top-3 left-4 bg-amber-500 text-white font-bold text-xs px-2 py-0.5 rounded shadow">
+            Part 1: Situation
+          </span>
+          <div class="space-y-2 mt-1">
+            <p class="font-semibold text-slate-900">Task</p>
+            <p class="text-sm leading-relaxed">
+              You are <span id="qa-writer" class="font-bold bg-amber-200 px-1 rounded">Mike Lee</span>, <span id="qa-role" class="font-semibold text-indigo-900">Event Officer</span> at <span id="qa-company" class="font-semibold text-indigo-900">One Media</span>.
+            </p>
+            <p class="text-sm leading-relaxed">
+              Your company is going to organise an <span id="qa-event" class="font-bold text-emerald-800 bg-emerald-100 px-1 rounded">anniversary concert</span>. <span id="qa-recipient" class="font-bold bg-amber-200 px-1 rounded">May Chan</span>, your colleague, has spoken to you about two event ticketing platform options.
+            </p>
+            <p class="text-sm leading-relaxed">
+              Use <span class="font-bold underline">ALL</span> your notes below to write an email to her. You should express your preference with explanations.
+            </p>
+            <p class="text-xs font-semibold text-slate-600">
+              Write <span class="text-red-600 font-bold">130 – 150 words</span> in the space provided.
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 2: Two Options -->
+        <div id="paper-section-2" class="p-4 rounded-lg border-2 border-dashed border-slate-300 transition-all duration-300 relative cursor-pointer group hover:border-indigo-400" onclick="switchStep(2)">
+          <span class="absolute -top-3 left-4 bg-indigo-600 text-white font-bold text-xs px-2 py-0.5 rounded shadow">
+            Part 2: Two Event Ticketing Platform Options
+          </span>
+          <div class="mt-2 text-sm space-y-3">
+            <div class="font-bold border-b pb-1 text-slate-700">Choices of event ticketing platform:</div>
+            
+            <!-- Option 1 -->
+            <div class="grid grid-cols-12 gap-2 items-start bg-white p-2 rounded border border-slate-200 shadow-sm">
+              <div class="col-span-3 font-semibold text-slate-800">Option 1</div>
+              <div class="col-span-3 font-bold text-indigo-700">City Tickets</div>
+              <div class="col-span-6 text-xs space-y-1">
+                <div class="flex items-center"><i class="fa-solid fa-circle text-[6px] mr-1.5 text-slate-400"></i> most popular ticketing site in HK</div>
+                <div class="flex items-center"><i class="fa-solid fa-circle text-[6px] mr-1.5 text-slate-400"></i> provide ticketing services for government events</div>
+              </div>
+            </div>
+
+            <!-- Option 2 -->
+            <div class="grid grid-cols-12 gap-2 items-start bg-white p-2 rounded border border-slate-200 shadow-sm">
+              <div class="col-span-3 font-semibold text-slate-800">Option 2</div>
+              <div class="col-span-3 font-bold text-indigo-700">TicketEasy</div>
+              <div class="col-span-6 text-xs">
+                <div class="flex items-center"><i class="fa-solid fa-circle text-[6px] mr-1.5 text-slate-400"></i> well-established ticketing platform</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Evaluation Table & Handwritten Notes -->
+        <div id="paper-section-3" class="p-4 rounded-lg border-2 border-dashed border-slate-300 transition-all duration-300 relative cursor-pointer group hover:border-emerald-400" onclick="switchStep(3)">
+          <span class="absolute -top-3 left-4 bg-emerald-600 text-white font-bold text-xs px-2 py-0.5 rounded shadow">
+            Part 3: Evaluation
+          </span>
+          <div class="mt-2 text-sm space-y-3">
+            <div class="font-bold border-b pb-1 text-slate-700">Evaluation:</div>
+
+            <table class="w-full text-xs text-left border-collapse bg-white rounded shadow-sm overflow-hidden border border-slate-300">
+              <thead>
+                <tr class="bg-slate-100 border-b border-slate-300 text-slate-700">
+                  <th class="p-2 border-r border-slate-300 text-center w-8">Option</th>
+                  <th class="p-2 border-r border-slate-300 w-28 whitespace-nowrap">Event Ticketing Platform</th>
+                  <th class="p-2 border-r border-slate-300 text-center text-emerald-600 font-bold text-sm"><i class="fa-solid fa-check text-base"></i></th>
+                  <th class="p-2 text-center text-rose-600 font-bold text-sm"><i class="fa-solid fa-xmark text-base"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row 1: City Tickets (Preferred) -->
+                <tr class="border-b border-slate-200 bg-emerald-50/30">
+                  <td class="p-2 border-r border-slate-200 text-center font-bold">
+                    1 
+                    <div class="text-xl text-emerald-600 mt-1"><i class="fa-solid fa-thumbs-up"></i></div>
+                  </td>
+                  <td class="p-2 border-r border-slate-200 font-semibold align-top">City Tickets</td>
+                  <td class="p-2 border-r border-slate-200 space-y-1 align-top">
+                    <div>• a variety of optional services (24/7 live hotline & website integration)</div>
+                    <div class="text-red-600 font-bold paper-font flex items-center text-xs mt-1">
+                      <span class="text-lg mr-1">➔</span> <span class="bg-yellow-200 px-1 rounded shadow-sm border border-yellow-300">? (What benefit does it bring?)</span>
+                    </div>
+                  </td>
+                  <td class="p-2 text-center text-slate-400 align-top">-</td>
+                </tr>
+
+                <!-- Row 2: TicketEasy -->
+                <tr class="bg-slate-50">
+                  <td class="p-2 border-r border-slate-200 text-center font-bold align-top">2</td>
+                  <td class="p-2 border-r border-slate-200 font-semibold align-top">TicketEasy</td>
+                  <td class="p-2 border-r border-slate-200 align-top">
+                    <div>• offer both browser and mobile app access</div>
+                    <div class="text-emerald-700 font-medium text-[11px] mt-0.5">➔ convenient for customers</div>
+                  </td>
+                  <td class="p-2 text-rose-600 font-bold align-top">
+                    <div class="text-center text-xl mb-1">?</div>
+                    <div class="bg-yellow-100 border border-yellow-300 p-2 rounded shadow-sm text-[11px] paper-font text-slate-800 space-y-1">
+                      <div class="font-bold text-amber-900 border-b border-yellow-200 pb-0.5">Any concern?</div>
+                      <ul class="list-disc list-inside text-slate-700 leading-tight space-y-0.5">
+                        <li>Cost?</li>
+                        <li>System design?</li>
+                        <li>Others?</li>
+                      </ul>
+                      <p class="text-red-600 font-bold pt-0.5 leading-tight">Let me choose <span class="underline">one</span> & elaborate further.</p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- RIGHT COLUMN: Interactive Explanation & Learning Panel -->
+    <section class="lg:col-span-5 flex flex-col space-y-4">
+      
+      <!-- Explanation Container -->
+      <div id="explanation-card" class="bg-slate-800 rounded-xl p-5 border border-slate-700 shadow-xl flex-1 flex flex-col justify-between">
+        <!-- Content will be injected dynamically by JS -->
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="bg-slate-800 rounded-xl p-4 border border-slate-700 flex justify-between items-center shadow-lg">
+        <button id="prevBtn" onclick="prevStep()" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-lg text-sm font-medium transition flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Previous
+        </button>
+        <span id="step-indicator" class="text-xs font-semibold text-slate-400">Step 1 of 4</span>
+        <button id="nextBtn" onclick="nextStep()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition flex items-center gap-2 shadow-md">
+          Next <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    // Current Step State
+    let currentStep = 1;
+
+    // Content for each step corresponding to video script and updated PDF details
+    const stepData = {
+      1: {
+        title: "Part 1: Analyzing the Situation",
+        badge: "Situation",
+        badgeColor: "bg-amber-500",
+        icon: "fa-address-card",
+        scriptSummary: "In this part, you will identify WHO you are, WHO your colleague is, WHO you write to, and WHY you are writing.",
+        keyPoints: [
+          { label: "Your Identity (Who you are)", val: "Mike Lee, Event Officer at One Media", icon: "fa-user-gear", highlightId: "qa-writer" },
+          { label: "Your Colleague (Recipient)", val: "May Chan", icon: "fa-paper-plane", highlightId: "qa-recipient" },
+          { label: "Context / Event", val: "Organising an anniversary concert for One Media", icon: "fa-calendar-event", highlightId: "qa-event" },
+          { label: "Task Objective", val: "Write an email to express your preference with clear explanations", icon: "fa-envelope-open-text" },
+          { label: "Word Count", val: "130 – 150 words (strictly follow requirement)", icon: "fa-pen-ruler" }
+        ],
+        tip: "💡 <strong>Exam Tip:</strong> Always start your email body by opening with the context (Anniversary concert ticketing options) and explicitly state your recommendation!"
+      },
+      2: {
+        title: "Part 2: Choices of Event Ticketing Platform",
+        badge: "Two Options",
+        badgeColor: "bg-indigo-600",
+        icon: "fa-list-check",
+        scriptSummary: "Here you examine the two options provided and identify additional description points required by the task prompt.",
+        keyPoints: [
+          { label: "Option 1: City Tickets", val: "Most popular ticketing site in HK", icon: "fa-ticket" },
+          { label: "⭐ Added Point in PDF", val: "Provide ticketing services for government events (Must include in your email!)", icon: "fa-circle-plus text-amber-400" },
+          { label: "Option 2: TicketEasy", val: "Well-established ticketing platform", icon: "fa-check-circle" }
+        ],
+        tip: "💡 <strong>Updated PDF Note:</strong> Notice the highlighted addition for Option 1! Make sure you don't miss describing that City Tickets provides ticketing services for government events."
+      },
+      3: {
+        title: "Part 3: Evaluation (Pros & Cons)",
+        badge: "Evaluation",
+        badgeColor: "bg-emerald-600",
+        icon: "fa-scale-balanced",
+        scriptSummary: "Evaluate the pros (advantages) and cons (disadvantages) of both options. The option with the thumbs-up (👍) is your preferred option.",
+        keyPoints: [
+          { label: "Preferred Option (👍)", val: "Option 1: City Tickets", icon: "fa-thumbs-up text-amber-400" },
+          { label: "Option 1 Advantage", val: "Offers a variety of optional services (24/7 live hotline & website integration)", icon: "fa-plus-circle" },
+          { label: "❓ Red Arrow & Question Mark", val: "Elaborate: What benefit does 24/7 hotline & website integration bring? (e.g., provides round-the-clock support & seamless booking experience)", icon: "fa-lightbulb text-yellow-400" },
+          { label: "Option 2 Advantage", val: "Offers browser & mobile app access ➔ convenient for customers", icon: "fa-mobile-screen" },
+          { label: "❓ Red Question Mark (Disadvantage)", val: "Choose ONE concern for Option 2 and elaborate (Cost, System design, or others). e.g., High transaction fees increase total expenses.", icon: "fa-triangle-exclamation text-rose-400" }
+        ],
+        tip: "💡 <strong>Video & PDF Rule:</strong> For the preference, explain the advantage AND elaborate on its benefit. For the non-preferred option, identify ONE disadvantage and elaborate!"
+      },
+      4: {
+        title: "Part 4: Interactive Analysis Quiz",
+        badge: "Quiz",
+        badgeColor: "bg-purple-600",
+        icon: "fa-clipboard-question",
+        isQuiz: true
+      }
+    };
+
+    // Quiz Questions Data
+    const quizQuestions = [
+      {
+        q: "1. What is your role and company in this writing task?",
+        options: [
+          "May Chan, Manager at One Media",
+          "Mike Lee, Event Officer at One Media",
+          "Mike Lee, Ticketing Specialist at City Tickets"
+        ],
+        correct: 1,
+        explain: "Correct! The situation states: 'You are Mike Lee, Event Officer at One Media.'"
+      },
+      {
+        q: "2. Which option is marked with a thumbs-up (👍) as your preference?",
+        options: [
+          "Option 1: City Tickets",
+          "Option 2: TicketEasy",
+          "Both options equally"
+        ],
+        correct: 0,
+        explain: "Correct! Option 1 (City Tickets) has the thumbs-up symbol indicating it is your chosen option."
+      },
+      {
+        q: "3. According to the updated question paper, what extra description is added to City Tickets?",
+        options: [
+          "Free app download",
+          "Provide ticketing services for government events",
+          "Discounted ticket pricing"
+        ],
+        correct: 1,
+        explain: "Correct! The updated PDF highlights that City Tickets 'provides ticketing services for government events'."
+      },
+      {
+        q: "4. What must you do for the red question mark (❓) in Option 2's evaluation?",
+        options: [
+          "Ignore it completely",
+          "Choose ONE concern (e.g., Cost or System design) and elaborate on its negative impact",
+          "List all three concerns without explanation"
+        ],
+        correct: 1,
+        explain: "Correct! The sticky note instructs you to pick ONE concern regarding Option 2 and elaborate further in your email."
+      }
+    ];
+
+    let currentQuizIndex = 0;
+    let selectedAnswers = {};
+
+    // Render Function
+    function renderStep() {
+      const data = stepData[currentStep];
+
+      // Update Section Highlighting on Paper
+      for (let i = 1; i <= 3; i++) {
+        const sec = document.getElementById(`paper-section-${i}`);
+        if (sec) {
+          if (i === currentStep) {
+            sec.classList.add('ring-4', 'ring-indigo-500', 'bg-indigo-50/40', 'highlight-glow');
+            sec.classList.remove('border-slate-300');
+          } else {
+            sec.classList.remove('ring-4', 'ring-indigo-500', 'bg-indigo-50/40', 'highlight-glow');
+            sec.classList.add('border-slate-300');
+          }
+        }
+      }
+
+      // Update Header Navigation Buttons
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById(`stepBtn-${i}`);
+        if (i === currentStep) {
+          btn.className = "px-3 py-1.5 rounded-md bg-indigo-600 text-white font-bold shadow transition";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-md bg-slate-700 text-slate-300 hover:bg-slate-600 transition";
+        }
+      }
+
+      // Update Indicators
+      document.getElementById('step-indicator').innerText = `Step ${currentStep} of 4`;
+      document.getElementById('prevBtn').disabled = currentStep === 1;
+      document.getElementById('prevBtn').style.opacity = currentStep === 1 ? '0.5' : '1';
+
+      // Hide Next button on step 4 (the last step)
+      const nextBtn = document.getElementById('nextBtn');
+      if (currentStep === 4) {
+        nextBtn.classList.add('hidden');
+      } else {
+        nextBtn.classList.remove('hidden');
+      }
+
+      const expContainer = document.getElementById('explanation-card');
+
+      if (data.isQuiz) {
+        // Render Interactive Quiz
+        renderQuiz(expContainer);
+      } else {
+        // Render Explanation Step
+        let pointsHTML = data.keyPoints.map(pt => `
+          <div class="bg-slate-700/60 p-3 rounded-lg border border-slate-600/80 flex items-start gap-3">
+            <div class="p-2 bg-slate-800 text-indigo-400 rounded-md mt-0.5">
+              <i class="fa-solid ${pt.icon} text-sm"></i>
+            </div>
+            <div>
+              <div class="text-xs font-semibold text-slate-400">${pt.label}</div>
+              <div class="text-sm font-medium text-slate-100">${pt.val}</div>
+            </div>
+          </div>
+        `).join('');
+
+        expContainer.innerHTML = `
+          <div class="space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-700 pb-3">
+              <div class="flex items-center space-x-2">
+                <span class="${data.badgeColor} text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                  ${data.badge}
+                </span>
+                <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                  <i class="fa-solid ${data.icon} text-indigo-400"></i> ${data.title}
+                </h2>
+              </div>
+            </div>
+
+            <p class="text-sm text-slate-300 leading-relaxed bg-indigo-950/40 p-3 rounded-lg border border-indigo-800/40">
+              <i class="fa-solid fa-circle-info text-indigo-400 mr-1.5"></i> ${data.scriptSummary}
+            </p>
+
+            <div class="space-y-2.5 my-4">
+              ${pointsHTML}
+            </div>
+          </div>
+
+          <div class="mt-4 p-3.5 bg-amber-950/30 border border-amber-600/40 rounded-lg text-amber-200 text-xs leading-relaxed">
+            ${data.tip}
+          </div>
+        `;
+      }
+    }
+
+    // Render Quiz Logic
+    function renderQuiz(container) {
+      // If quiz finished and past last question, show score summary
+      if (currentQuizIndex >= quizQuestions.length) {
+        renderQuizResults(container);
+        return;
+      }
+
+      const q = quizQuestions[currentQuizIndex];
+      const selected = selectedAnswers[currentQuizIndex];
+
+      let optionsHTML = q.options.map((opt, idx) => {
+        let btnStyle = "bg-slate-700/70 border-slate-600 hover:bg-slate-600 text-slate-200";
+        let icon = `<i class="fa-regular fa-circle text-slate-400"></i>`;
+
+        if (selected !== undefined) {
+          if (idx === q.correct) {
+            btnStyle = "bg-emerald-900/60 border-emerald-500 text-emerald-200 font-medium";
+            icon = `<i class="fa-solid fa-circle-check text-emerald-400"></i>`;
+          } else if (idx === selected) {
+            btnStyle = "bg-rose-900/60 border-rose-500 text-rose-200";
+            icon = `<i class="fa-solid fa-circle-xmark text-rose-400"></i>`;
+          }
+        }
+
+        return `
+          <button onclick="answerQuiz(${idx})" ${selected !== undefined ? 'disabled' : ''} 
+            class="w-full text-left p-3 rounded-lg border ${btnStyle} transition flex items-center justify-between text-xs sm:text-sm">
+            <span>${opt}</span>
+            ${icon}
+          </button>
+        `;
+      }).join('');
+
+      let feedbackHTML = "";
+      if (selected !== undefined) {
+        feedbackHTML = `
+          <div class="p-3 rounded-lg text-xs leading-relaxed ${selected === q.correct ? 'bg-emerald-950/60 text-emerald-300 border border-emerald-700/50' : 'bg-rose-950/60 text-rose-300 border border-rose-700/50'}">
+            ${q.explain}
+          </div>
+        `;
+      }
+
+      container.innerHTML = `
+        <div class="space-y-4">
+          <div class="flex justify-between items-center border-b border-slate-700 pb-3">
+            <span class="bg-purple-600 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+              Question ${currentQuizIndex + 1} of ${quizQuestions.length}
+            </span>
+            <span class="text-xs text-slate-400">Test Your Paper Analysis Knowledge</span>
+          </div>
+
+          <h3 class="text-sm sm:text-base font-semibold text-white leading-snug">${q.q}</h3>
+
+          <div class="space-y-2.5 my-3">
+            ${optionsHTML}
+          </div>
+
+          ${feedbackHTML}
+        </div>
+
+        <div class="flex justify-between items-center pt-3 border-t border-slate-700">
+          <button onclick="prevQuiz()" ${currentQuizIndex === 0 ? 'disabled class="opacity-40 text-xs text-slate-500"' : 'class="text-xs text-indigo-400 hover:text-indigo-300 font-semibold"'}">
+            <i class="fa-solid fa-chevron-left"></i> Prev Question
+          </button>
+          <button onclick="nextQuiz()" ${selected === undefined ? 'disabled class="opacity-40 text-xs text-slate-500 cursor-not-allowed"' : 'class="text-xs text-indigo-400 hover:text-indigo-300 font-semibold"'}>
+            ${currentQuizIndex === quizQuestions.length - 1 ? 'See Results <i class="fa-solid fa-award"></i>' : 'Next Question <i class="fa-solid fa-chevron-right"></i>'}
+          </button>
+        </div>
+      `;
+    }
+
+    // Render Quiz Score & Results Summary
+    function renderQuizResults(container) {
+      let correctCount = 0;
+      quizQuestions.forEach((q, idx) => {
+        if (selectedAnswers[idx] === q.correct) {
+          correctCount++;
+        }
+      });
+
+      const total = quizQuestions.length;
+      const isPerfect = correctCount === total;
+
+      if (isPerfect && typeof confetti === 'function') {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
+
+      container.innerHTML = `
+        <div class="space-y-5 text-center py-4 my-auto">
+          <div class="inline-flex p-4 rounded-full ${isPerfect ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 pulse-subtle' : 'bg-amber-500/20 text-amber-400 border border-amber-500/40'} text-4xl mb-1">
+            <i class="fa-solid ${isPerfect ? 'fa-trophy text-amber-400' : 'fa-rotate-right'}"></i>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-extrabold ${isPerfect ? 'text-emerald-400' : 'text-amber-400'}">
+              ${isPerfect ? '🎉 Well done!' : '💪 Try again!'}
+            </h3>
+            <p class="text-sm text-slate-300 mt-1">
+              ${isPerfect ? 'You analyzed all parts of the question paper correctly!' : 'Review your answers and give it another try to master the question paper format.'}
+            </p>
+          </div>
+
+          <!-- Score Card -->
+          <div class="bg-slate-700/60 p-4 rounded-xl border border-slate-600 max-w-xs mx-auto">
+            <div class="text-xs uppercase font-bold tracking-wider text-slate-400">Your Score</div>
+            <div class="text-3xl font-black text-white mt-1">
+              <span class="${isPerfect ? 'text-emerald-400' : 'text-amber-400'}">${correctCount}</span> / ${total}
+            </div>
+            <div class="text-xs font-medium text-slate-400 mt-1">
+              ${Math.round((correctCount / total) * 100)}% Accuracy
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex justify-center gap-3 pt-2">
+            <button onclick="restartQuiz()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-lg text-xs transition flex items-center gap-1.5 shadow-md">
+              <i class="fa-solid fa-arrow-rotate-left"></i> Retake Quiz
+            </button>
+            <button onclick="switchStep(1)" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold rounded-lg text-xs transition flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> Review Paper Notes
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Restart Quiz Function
+    function restartQuiz() {
+      currentQuizIndex = 0;
+      selectedAnswers = {};
+      renderStep();
+    }
+
+    // Quiz Navigation
+    function answerQuiz(index) {
+      selectedAnswers[currentQuizIndex] = index;
+      renderStep();
+    }
+
+    function prevQuiz() {
+      if (currentQuizIndex > 0) {
+        currentQuizIndex--;
+        renderStep();
+      }
+    }
+
+    function nextQuiz() {
+      currentQuizIndex++;
+      renderStep();
+    }
+
+    // Step Control
+    function switchStep(step) {
+      currentStep = step;
+      renderStep();
+    }
+
+    function nextStep() {
+      if (currentStep < 4) {
+        currentStep++;
+        renderStep();
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        currentStep--;
+        renderStep();
+      }
+    }
+
+    // Initialize App on Load
+    window.onload = function() {
+      renderStep();
+    };
+  </script>
+</body>
+</html>
